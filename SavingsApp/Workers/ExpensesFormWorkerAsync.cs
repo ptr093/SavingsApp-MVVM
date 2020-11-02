@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,7 +60,9 @@ namespace SavingsApp.Workers
 
         private void InsertDataToDataBase(SqlConnection cnn, decimal Amount, string TransactionName, string TransactionType, string Data)
         {
-            string command =  String.Format("INSERT INTO dbo.Wydatkii VALUES ({0},'{1}','{2}','{3}')", Amount,TransactionName,TransactionType,Data);
+            
+            
+            string command =  String.Format("INSERT INTO dbo.Wydatkii VALUES ({0},'{1}','{2}','{3}')", Amount.ToString().Replace(",","."),TransactionName,TransactionType,Data,new CultureInfo("pl-PL"));
             _sqlServerHelper.ExecuteQuery(command, cnn);
         }
 

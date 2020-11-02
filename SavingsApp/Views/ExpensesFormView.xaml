@@ -116,12 +116,13 @@
                                               
                           />
                 </Button>
-                <Button Name="BtnSave" Height="75" Width="75" BorderBrush="Transparent"  Background="Transparent"  cal:Message.Attach="[Event Click] = [Action SaveTransactionsToList()]"  >
+               
+                    <Button Name="BtnSave" Height="75" Width="75" BorderBrush="Transparent"  Background="Transparent"  cal:Message.Attach="[Event Click] = [Action SaveTransactionsToList()]"  >
 
-                    <materialDesign:PackIcon Width="50" Height="50" Kind="ContentSave" 
+                        <materialDesign:PackIcon  Kind="ContentSave" Height="50" Width="50"  
                          Background="Transparent" />
-                </Button>
-
+                    </Button>
+              
             </DockPanel>
 
            
