@@ -24,10 +24,10 @@
         </Grid.Background>
 
 
-        <UniformGrid Grid.Row="0">
+        <UniformGrid Grid.Row="0" Columns="3">
             <Button  Background="Transparent"  Content="Dodaj Wydatki"  Name="AddExpenses" ></Button>
             <Button Background="Transparent"   Content="Lista Wydatków" Name="ListOfExpenses" ></Button>
-
+            <Button Background="Transparent"   Content="Wykresy" Name="Charts"></Button>
         </UniformGrid>
 
         <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">

@@ -61,10 +61,16 @@ namespace SavingsApp.Workers
                     
                     IList<string[]> getMonths = _sqlServerHelper.GetMonthsList(cnn);
 
-                    var item = string.Empty;
+                    var index = 0;
+                    var MonthName = string.Empty;
+                    var YearName = string.Empty;
                     if (SelectedMonth != null)
-                        item = SelectedMonth;
-                    IList<string[]> getExpenses = _sqlServerHelper.GetExpensesList(cnn, item);
+                    {
+                        index = SelectedMonth.IndexOf(' ');
+                        MonthName= SelectedMonth.Remove(index,SelectedMonth.Count() - index);
+                        YearName = SelectedMonth.Remove(0, index);
+                    }
+                    IList<string[]> getExpenses = _sqlServerHelper.GetExpensesList(cnn, MonthName,YearName);
                     foreach (string[] sqlCommand in getExpenses)
                     {
                         ExpensesModel expenses = GetExpnsesList(cnn, sqlCommand);

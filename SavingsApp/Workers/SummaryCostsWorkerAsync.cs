@@ -47,10 +47,16 @@ namespace SavingsApp.Workers
                 {
                     cnn.Open();
 
-                    var monthName = string.Empty;
+                    var index = 0;
+                    var MonthName = string.Empty;
+                    var YearName = string.Empty;
                     if (SelectedMonth != null)
-                     monthName = SelectedMonth;
-                    IList<string[]> getSummaryCosts = _sqlServerHelper.GetSummaryCosts(cnn, monthName);
+                    {
+                        index = SelectedMonth.IndexOf(' ');
+                        MonthName = SelectedMonth.Remove(index, SelectedMonth.Count() - index);
+                        YearName = SelectedMonth.Remove(0, index);
+                    };
+                    IList<string[]> getSummaryCosts = _sqlServerHelper.GetSummaryCosts(cnn, MonthName,YearName);
                     foreach (string[] sqlCommand in getSummaryCosts)
                     {
                         SummaryCosts summaryCosts = GetSummaryCosts(cnn, sqlCommand);
@@ -76,8 +82,13 @@ namespace SavingsApp.Workers
         {
             SummaryCosts summaryCosts = new SummaryCosts();
 
+
+
+            if (!string.IsNullOrEmpty(sqlCommand[0]))
             summaryCosts.Icnome = decimal.Parse(sqlCommand[0]);
+            if(!string.IsNullOrEmpty(sqlCommand[1]))
             summaryCosts.Expenses = decimal.Parse(sqlCommand[1]);
+            if (!string.IsNullOrEmpty(sqlCommand[2]))
             summaryCosts.Total = decimal.Parse(sqlCommand[2]);
             return summaryCosts;
 

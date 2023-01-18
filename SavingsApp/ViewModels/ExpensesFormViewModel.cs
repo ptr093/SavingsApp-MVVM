@@ -416,7 +416,6 @@ namespace SavingsApp.ViewModels
             expensesFormWorkerAsync.ExpensesFormModel = ExpenseList;
             expensesFormWorkerAsync.RunAsync();
 
-
         }
 
         public void AddTransactionToList()

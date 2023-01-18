@@ -32,5 +32,10 @@ namespace SavingsApp.ViewModels
          
             ActivateItem(new ExpensesViewModel());
         }
+
+        public void Charts()
+        {
+            ActivateItem(new ChartsViewModel());
+        }
     }
 }

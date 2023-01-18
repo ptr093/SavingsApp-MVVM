@@ -58,18 +58,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="EventArgs\ChartsCategoryListWorkPerformedEventArgscs.cs" />
+    <Compile Include="EventArgs\ChartsListWorkPerformedEventArgs.cs" />
     <Compile Include="EventArgs\ExpensesFormListWorkPerformedEventArgs.cs" />
     <Compile Include="EventArgs\ExpensesListWorkPerformedEventArgs.cs" />
     <Compile Include="EventArgs\MonthsListWorkPerformedEventArgs.cs" />
     <Compile Include="EventArgs\SummaryCostListWorkPerformedEventArgs.cs" />
     <Compile Include="EventArgs\TransactionsNameListWorkPerformedEventArgs.cs" />
-    <Compile Include="EventArgs\UpdateConnectionString.cs" />
     <Compile Include="EventArgs\UpdateWorkerStatusEventArgs .cs" />
+    <Compile Include="Models\ChartsModel.cs" />
     <Compile Include="Models\ExpensesFormModel.cs" />
     <Compile Include="Models\SummaryCosts.cs" />
+    <Compile Include="ViewModels\ChartsViewModel.cs" />
     <Compile Include="ViewModels\ExpensesFormViewModel.cs" />
     <Compile Include="ViewModels\ExpensesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ChartsView.xaml.cs">
+      <DependentUpon>ChartsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExpensesFormView.xaml.cs">
       <DependentUpon>ExpensesFormView.xaml</DependentUpon>
     </Compile>
@@ -80,6 +86,7 @@
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Workers\BaseWorkerAsync.cs" />
+    <Compile Include="Workers\ChartsWorkerAsync.cs" />
     <Compile Include="Workers\ExpensesFormWorkerAsync.cs" />
     <Compile Include="Workers\ExpensesWorkerAsync.cs" />
     <Compile Include="App.xaml.cs">
@@ -90,6 +97,10 @@
     <Compile Include="Helpers\SqlServerHelper.cs" />
     <Compile Include="Workers\SummaryCostsWorkerAsync.cs" />
     <Compile Include="Workers\TransactionUpdaterWorkerAync.cs" />
+    <Page Include="Views\ChartsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ExpensesFormView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +159,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.SqlServer.Smo.dll">
       <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <Version>4.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

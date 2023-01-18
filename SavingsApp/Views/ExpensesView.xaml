@@ -48,7 +48,7 @@
                         <ListView.View>
                             <GridView>
 
-                                <GridViewColumn Header="Amount" Width="auto" DisplayMemberBinding="{Binding Amount}"/>
+                                <GridViewColumn Header="{Binding Amount}" Width="auto" DisplayMemberBinding="{Binding Amount}"/>
                                 <GridViewColumn Header="TransactionName" Width="auto" DisplayMemberBinding="{Binding TransactionName}"/>
                                 <GridViewColumn Header="TransactionType" Width="auto" DisplayMemberBinding="{Binding TransactionType}"/>
                                 <GridViewColumn Header="Date" Width="auto" DisplayMemberBinding="{Binding Date}"/>
